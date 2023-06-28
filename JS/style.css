@@ -3,7 +3,9 @@ body {
 }
 
 h1 {
-    padding-top: 25px;
+    margin-top: 3px;
+    padding-top: 10px;
+    margin-bottom: 20px;
     font-size: 40px;
     text-align: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -23,3 +25,15 @@ h1 {
     float: right;
     margin-right: 45px;
   }
+
+.card_container {
+    margin-left: 50px;
+}
+
+.card {
+        padding: 10px;
+        margin-bottom: 30px;
+        background-color: black;
+        width: 100px;
+        height: 100px;
+    }
