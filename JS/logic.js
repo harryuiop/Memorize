@@ -1,13 +1,12 @@
-window.addEventListener("DOMContentLoaded", function() {
-    const allCardsArray = Array.from(document.getElementsByClassName("card"));
-  });
-
   function setupStartGame() {
-    
+    const allCardsArray = Array.from(document.getElementsByClassName("card"));
+    startGameClicked(allCardsArray)
   }
   
-  function startGameClicked() {
-
+  function startGameClicked(allCardsArray) {
+    for (card in allCardsArray) {
+        console.log(card);
+    }
   }
 
 function onClickChangeBackground(id) {
