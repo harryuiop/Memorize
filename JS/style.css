@@ -6,10 +6,10 @@ h1 {
     margin-top: 3px;
     padding-top: 10px;
     margin-bottom: 20px;
-    margin-left: 77px;
+    margin-left: 65px;
     font-size: 45px;
     text-align: left; /* Center the header */
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
     color: #60492C;
 }
 
@@ -18,7 +18,7 @@ footer {
     margin-left: 80px;
     margin-top: 30px;
     font-size: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
     padding-right: 10px;
     color: #60492C;
 
@@ -36,6 +36,8 @@ footer {
     font-weight: bold;
     float: right;
     margin-right: 60px;
+    font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
   }
 
   .start {
@@ -50,6 +52,8 @@ footer {
     font-weight: bold;
     float: right;
     margin-right: 33px;
+    font-family: Palatino, "Palatino LT STD", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+
   }
 
   .card_container {

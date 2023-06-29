@@ -10,9 +10,9 @@
   }
 
 function onClickChangeBackground(id) {
-    if (id.style.background == "black") {
-        id.style.background = "white";
+    if (id.style.background == "rgb(45, 148, 183)") {
+        id.style.background = "rgb(70, 63, 26)";
     } else {
-        id.style.background = "black"
+        id.style.background = "rgb(45, 148, 183)"
     }
 }
