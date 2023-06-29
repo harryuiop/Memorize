@@ -6,16 +6,17 @@ h1 {
     margin-top: 3px;
     padding-top: 10px;
     margin-bottom: 20px;
+    margin-left: 77px;
     font-size: 45px;
-    text-align: center;
+    text-align: left; /* Center the header */
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: -940px;
     color: #60492C;
 }
 
 footer {
-    text-align: center;
-    margin-top: 20px;
+    text-align: left;
+    margin-left: 80px;
+    margin-top: 30px;
     font-size: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-right: 10px;
@@ -34,7 +35,7 @@ footer {
     font-size: 16px;
     font-weight: bold;
     float: right;
-    margin-right: 33px;
+    margin-right: 60px;
   }
 
   .start {
@@ -52,17 +53,17 @@ footer {
   }
 
   .card_container {
-    margin: 10px;
-    display: grid;
+    margin-left: 40px;
+    margin-right: 15px; 
+    display: grid; 
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    grid-gap: 35px; 
-    margin: 0;
+    grid-row-gap: 20px; 
   }
   
   .card {
-    background-color: #208AAE;
+    background-color: rgb(45, 148, 183);
     width: 250px; 
     height: 200px;
     border-radius: 17px;
-    height: #463F1A;
+    height: rgb(70, 63, 26);
   }
