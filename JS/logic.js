@@ -14,6 +14,12 @@ function startGameClicked() {
     let cardPairArrayWithImg = givePairsAnImage(cardPairArray)
     console.log(cardPairArrayWithImg)
 
+    for (pair of cardPairArrayWithImg) {
+        let newHTMLContent = "<p>" + pair[2] + "</p>";
+        for (card of pair) {
+            card.innerHTML = newHTMLContent
+        }
+    }
     /** ToDo:
      *  Flip the cards to show all the pairs of images 
      */
