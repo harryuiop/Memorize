@@ -12,14 +12,24 @@ function startGameClicked() {
 
     let cardPairArray = getPairs()
     let cardPairArrayWithImg = givePairsAnImage(cardPairArray)
-    console.log(cardPairArrayWithImg)
+
+    for (card of allCards) {
+        card.style.background = "rgb(96, 73, 44)"
+        card.style.display = "flex"; // Set display to flex
+        card.style.justifyContent = "center"; // Center horizontally
+        card.style.alignItems = "center"; // Center vertically
+        card.style.colour
+    }
 
     for (pair of cardPairArrayWithImg) {
-        let newHTMLContent = "<p>" + pair[2] + "</p>";
+        let newHTMLContent = pair[2];
+
         for (card of pair) {
-            card.innerHTML = newHTMLContent
+            card.innerHTML = newHTMLContent;
         }
     }
+
+
     /** ToDo:
      *  Flip the cards to show all the pairs of images 
      */
@@ -28,8 +38,15 @@ function startGameClicked() {
     setTimeout(() => {
     for (i of allCards) {
         i.style.background = "rgb(45, 148, 183)"
+
+    for (pair of cardPairArrayWithImg) {
+        let newHTMLContent = "";
+        for (card of pair) {
+            card.innerHTML = newHTMLContent
+            }
+        }
     }
-    }, duration);
+}, duration);
 
     /**
      *  user will click one card, it will stay turned, if the next
@@ -52,7 +69,7 @@ function getPairs(){
         
         let randomValue = random.integer()
         
-        if (!usedCards.includes(randomValue) || temporaryHolder.length == 2) { // NOTE: this is going to have god awful performance
+        if (!usedCards.includes(randomValue) || temporaryHolder.length == 2) { // NOTE: god awful performance
             
             if (temporaryHolder.length == 2) {
                 cardPairs.push(temporaryHolder)
