@@ -1,4 +1,15 @@
+allCards = []
+for (i = 1; i < 21; i++) {
+    let card = document.getElementById('card' + i);
+    allCards.push(card);
+}
+
+const random = {
+    integer: () => Math.floor(Math.random() * 20) + 1,
+  };
+
 function startGameClicked() {
+
 
     /** ToDo:
      *  Flip the cards to show all the pairs of images 
@@ -6,8 +17,9 @@ function startGameClicked() {
 
     const duration = 1000;
     setTimeout(() => {
-    for (i of cards) {
+    for (i of allCards) {
         i.style.background = "rgb(45, 148, 183)"
+        console.log(i)
     }
     }, duration);
 
@@ -23,10 +35,10 @@ function startGameClicked() {
 
 }
 
+getPairs()
 function getPairs(){
-    const allCards = [card1, card2, card3, card4, card5, card6, card7,
-        card8, card9, card10, card11, card12, card13, card14, card15,
-        card16, card17, card18, card19, card20];
+
+    console.log(random.integer())
 }
     
 function givePairsAnImage(){
