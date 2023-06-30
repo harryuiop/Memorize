@@ -4,10 +4,6 @@ for (i = 1; i < 21; i++) {
     allCards.push(card);
 }
 
-const random = {
-    integer: () => Math.floor(Math.random() * 20) + 1,
-};
-
 function startGameClicked() {
 
     let cardPairArray = getPairs()
@@ -15,14 +11,6 @@ function startGameClicked() {
 
     for (card of allCards) {
         flipCardUp(card)
-    }
-
-    for (pair of cardPairArrayWithImg) {
-        let newHTMLContent = pair[2];
-
-        for (card of pair) {
-            card.innerHTML = newHTMLContent;
-        }
     }
 
     const duration = 1000;
@@ -44,6 +32,10 @@ function getPairs(){
     let usedCards = []
     let cardPairs = []
     let temporaryHolder = []
+
+    const random = {
+        integer: () => Math.floor(Math.random() * 20) + 1,
+    };    
     
     while (cardPairs.length < 10) { 
         let randomValue = random.integer()
@@ -72,13 +64,20 @@ function givePairsAnImage(PairsArray){
     return PairsArray
 }
 
+let pairHolder = []
 function selectionLogic(card) {
-    let pairHolder = []
     if (pairHolder.length === 0) {
         pairHolder.push(card)
         flipCardUp(card)
     } else {
-        
+        if (findCardsImage(card) === findCardsImage(pairHolder[0])) {
+            flipCardUp(card)
+            pairHolder = []
+        } else {
+            flipCardDown(pairHolder[0])
+            flipCardDown(card)
+            pairHolder = []
+        }
     }
 }
 
@@ -109,4 +108,15 @@ function flipCardDown(card) {
 function scoreUpdater() {
     let playersScore = 0
     
+}
+
+function findCardsImage(card) {
+    for (pair of cardPairArrayWithImg) {
+        let newHTMLContent = pair[2];
+        for (cards of pair) {
+            if (card === cards) {
+                return newHTMLContent
+            }
+        }
+    }
 }
