@@ -11,14 +11,10 @@ const random = {
 function startGameClicked() {
 
     let cardPairArray = getPairs()
-    let cardPairArrayWithImg = givePairsAnImage(cardPairArray)
+    cardPairArrayWithImg = givePairsAnImage(cardPairArray)
 
     for (card of allCards) {
-        card.style.background = "rgb(96, 73, 44)"
-        card.style.display = "flex"; // Set display to flex
-        card.style.justifyContent = "center"; // Center horizontally
-        card.style.alignItems = "center"; // Center vertically
-        card.style.colour
+        flipCardUp(card)
     }
 
     for (pair of cardPairArrayWithImg) {
@@ -29,30 +25,14 @@ function startGameClicked() {
         }
     }
 
-
-    /** ToDo:
-     *  Flip the cards to show all the pairs of images 
-     */
-
     const duration = 1000;
     setTimeout(() => {
-    for (i of allCards) {
-        i.style.background = "rgb(45, 148, 183)"
-
-    for (pair of cardPairArrayWithImg) {
-        let newHTMLContent = "";
-        for (card of pair) {
-            card.innerHTML = newHTMLContent
-            }
+    for (card of allCards) {
+          flipCardDown(card)
         }
-    }
-}, duration);
+    }, duration);
 
     /**
-     *  user will click one card, it will stay turned, if the next
-     *  card they pick is wrong then flip them both back and deduct 
-     *  from score.
-     * 
      *  Ideas:
      *  - run in a while loop that every found pair gets added to a 
      *    found array, and then when the length of it is 20, game ends.
@@ -66,7 +46,6 @@ function getPairs(){
     let temporaryHolder = []
     
     while (cardPairs.length < 10) { 
-        
         let randomValue = random.integer()
         
         if (!usedCards.includes(randomValue) || temporaryHolder.length == 2) { // NOTE: god awful performance
@@ -92,13 +71,42 @@ function givePairsAnImage(PairsArray){
     }
     return PairsArray
 }
-  
-function onClickChangeBackground(id) {
 
-    if (id.style.background == "rgb(45, 148, 183)") {
-        id.style.background = "rgb(70, 63, 26)";
+function selectionLogic(card) {
+    let pairHolder = []
+    if (pairHolder.length === 0) {
+        pairHolder.push(card)
+        flipCardUp(card)
     } else {
-        id.style.background = "rgb(45, 148, 183)"
+        
     }
+}
 
+function flipCardUp(card) {
+    card.style.background = "rgb(70, 63, 26)"
+    card.style.display = "flex"; // Set display to flex
+    card.style.justifyContent = "center"; // Center horizontally
+    card.style.alignItems = "center"; // Center vertically
+    card.style.color = "white";
+    card.style.fontSize = "40px";
+
+    for (pair of cardPairArrayWithImg) {
+        let newHTMLContent = pair[2];
+
+        for (cards of pair) {
+            if (card === cards) {
+            cards.innerHTML = newHTMLContent;
+            }
+        }
+    }
+}
+
+function flipCardDown(card) {
+    card.style.background = "rgb(45, 148, 183)"
+    card.innerHTML = ""; 
+}
+
+function scoreUpdater() {
+    let playersScore = 0
+    
 }
