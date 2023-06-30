@@ -10,7 +10,9 @@ const random = {
 
 function startGameClicked() {
 
-    console.log(getPairs())
+    let cardPairArray = getPairs()
+    let cardPairArrayWithImg = givePairsAnImage(cardPairArray)
+    console.log(cardPairArrayWithImg)
 
     /** ToDo:
      *  Flip the cards to show all the pairs of images 
@@ -59,8 +61,13 @@ function getPairs(){
     return cardPairs
 }
     
-function givePairsAnImage(){
-    
+function givePairsAnImage(PairsArray){
+    const imageBank = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
+    for (i of PairsArray) {
+        let imgToAdd = imageBank.shift()
+        i.push(imgToAdd)
+    }
+    return PairsArray
 }
   
 function onClickChangeBackground(id) {
