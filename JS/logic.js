@@ -1,6 +1,7 @@
 allCards = []
 let started = false
-let cardPairArrayWithImg = [];
+let cardPairArrayWithImg = []
+let playerScore = 0
 for (i = 1; i < 21; i++) {
     let card = document.getElementById('card' + i);
     allCards.push(card);
@@ -8,18 +9,23 @@ for (i = 1; i < 21; i++) {
 
 function startGameClicked() {
     if (started === false) {
-        started = true
+        resetScore()
         let cardPairArray = getPairs()
         cardPairArrayWithImg = givePairsAnImage(cardPairArray)
-
+        
         for (card of allCards) {
             flipCardUp(card)
         }
-
+        
         const duration = 5000;
         setTimeout(() => {
-        for (card of allCards) {
-            flipCardDown(card)
+            for (card of allCards) {
+                flipCardDown(card)
+            }
+        }, duration);
+        setTimeout(() => {
+            for (card of allCards) {
+                started = true
             }
         }, duration);
     }
@@ -27,11 +33,14 @@ function startGameClicked() {
 
 function resetGameClicked() {
     started = false
+    resetScore()
     for (card of allCards) {
         flipCardDown(card)
     }
-    startGameClicked()
-    
+    const durationd = 1000;
+    setTimeout(() => {
+        startGameClicked()
+    }, durationd);
 }
 
 function getPairs(){
@@ -73,7 +82,13 @@ function givePairsAnImage(PairsArray){
 let pairHolder = []
 function selectionLogic(card) {
 
-    if (started === true) {
+
+    if (pairHolder.length > 2) {
+        pairHolder = []
+    }
+
+
+    else if (started === true && pairHolder.length <= 2) {
 
         if (pairHolder.length === 0 && !(card.style.background == "rgb(0, 128, 0)") && !(card === pairHolder[0])) {
             pairHolder.push(card)
@@ -86,11 +101,12 @@ function selectionLogic(card) {
                 card.style.background = "rgb(0, 128, 0)"
                 pairHolder[0].style.background = "rgb(0, 128, 0)"
                 pairHolder = []
+                increaseScore()
 
             } else if (!(card.style.background == ("rgb(0, 128, 0)")) && !(card === pairHolder[0])) {
                 flipCardUp(card)
                 card.style.background = "red"
-
+                decreaseScore()
                 if (pairHolder.length != 0) {
                     pairHolder[0].style.background = "red"
                     const durations = 400;
@@ -137,9 +153,23 @@ function flipCardDown(card) {
     card.innerHTML = ""; 
 }
 
-function scoreUpdater() {
-    let playersScore = 0
-    
+function increaseScore() {
+    playerScore += 10
+    let scoreCard = document.getElementById("score")
+    score.innerHTML = "Score: " + playerScore
+}
+
+function decreaseScore() {
+    if (playerScore > 1) {
+        playerScore -= 1
+    }
+    let scoreCard = document.getElementById("score")
+    score.innerHTML = "Score: " + playerScore
+}
+
+function resetScore(){
+    playerScore = 0
+    score.innerHTML = "Score: " + playerScore
 }
 
 function findCardsImage(card) {
