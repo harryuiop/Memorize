@@ -1,7 +1,8 @@
-allCards = []
+let allCards = []
 let started = false
 let cardPairArrayWithImg = []
 let playerScore = 0
+
 for (i = 1; i < 21; i++) {
     let card = document.getElementById('card' + i);
     allCards.push(card);
@@ -82,11 +83,9 @@ function givePairsAnImage(PairsArray){
 let pairHolder = []
 function selectionLogic(card) {
 
-
     if (pairHolder.length > 2) {
         pairHolder = []
     }
-
 
     else if (started === true && pairHolder.length <= 2) {
 
@@ -116,7 +115,6 @@ function selectionLogic(card) {
                         flipCardDown(card)
                         pairHolder = []
                     }, durations);
-                    
                 }
             }
         }
